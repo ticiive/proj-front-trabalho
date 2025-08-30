@@ -157,12 +157,14 @@ footer.foot img {
         </nav>
     </div>
 <main>
-    <form>
+    <form id = "formulario">
         <label for = "Nome">Nome:</label>
         <input id="Nome"type="text" required> <br><br>
+        <span id="erro-nome"></span>
         
         <label for ="email">Email:</label>
         <input id = "email" type="email" required> <br><br>
+        <span id="erro-email"></span>
 
         <label>Entregue</label>
         <input type="submit" required>
@@ -178,6 +180,39 @@ footer.foot img {
         
     </footer>
 
+    <script>
+        const formulario = document.getElementById("formulario");
+
+        formulario.addEventListener("submit", validarFormulario);
+
+        function validarFormulario(evento) {
+        let valido = true
+        const campoNome = document.getElementById("nome").value;
+        const campoEmail = document.getElementById("email").value;
+        const erroNome = document.getElementById("erro-nome").value;
+        const erroEmail = document.getElementById("erro-email").value;
+        }
+        
+         if (nome.trim() === "") {
+    erroNome.textContent = "O nome é obrigatório.";
+    valido = false;
+
+        if (email.indexOf("@") === -1 || email.length < 5) {
+    erroEmail.textContent = "Email inválido.";
+    valido = false;
+
+
+     if (!valido) {
+    evento.preventDefault();
+        }
+    }
+    
+
+  }
+
+
+
+    </script>
 
 </body>
 </html>
