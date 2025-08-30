@@ -11,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial
 }
 
 body {
@@ -112,13 +112,15 @@ footer.foot {
 footer.foot img {
     width: 25px;
     margin-top: 10px;
+
+
 }</style>
 
 
 
 <body>
     <header>
-        <img onmouseover="manoelGrande"  class="manoel" src="manoelgomes-convertido-de-jpg.png" alt="gato">
+        <img  class="manoel" src="manoelgomes-convertido-de-jpg.png" alt="gato">
         <h1>Contatos</h1>
         
     </header>
@@ -136,11 +138,11 @@ footer.foot img {
 <main>
     <form id = "formulario">
         <label for = "Nome">Nome:</label>
-        <input id="Nome"type="text" required> <br><br>
+        <input id="nome"type="text"> <br><br>
         <span id="erro-nome"></span>
         
         <label for ="email">Email:</label>
-        <input id = "email" type="email" required> <br><br>
+        <input id = "email" type="email" > <br><br>
         <span id="erro-email"></span>
 
         <label>Entregue</label>
@@ -158,36 +160,38 @@ footer.foot img {
     </footer>
 
     <script>
-        const formulario = document.getElementById("formulario");
 
-        formulario.addEventListener("submit", validarFormulario);
 
-        function validarFormulario(evento) {
-        let valido = true
+    const formulario = document.getElementById("formulario");
+
+    formulario.addEventListener("submit", validarFormulario);
+
+    function validarFormulario(evento) {
+        let valido = true;
+
         const campoNome = document.getElementById("nome").value;
         const campoEmail = document.getElementById("email").value;
-        const erroNome = document.getElementById("erro-nome").value;
-        const erroEmail = document.getElementById("erro-email").value;
-        }
+        const erroNome = document.getElementById("erro-nome");
+        const erroEmail = document.getElementById("erro-email");
+
         
-         if (nome.trim() === "") {
-    erroNome.textContent = "O nome é obrigatório.";
-    valido = false;
+        erroNome.textContent = "";
+        erroEmail.textContent = "";
 
-        if (email.indexOf("@") === -1 || email.length < 5) {
-    erroEmail.textContent = "Email inválido.";
-    valido = false;
+        if (campoNome.trim() === "") {
+            erroNome.textContent = "O nome é obrigatório.";
+            valido = false;
+        }
 
+        if (campoEmail.indexOf("@") === -1 || campoEmail.length < 5) {
+            erroEmail.textContent = "Email inválido.";
+            valido = false;
+        }
 
-     if (!valido) {
-    evento.preventDefault();
+        if (!valido) {
+            evento.preventDefault(); 
         }
     }
-    
-
-  }
-
-
 
     </script>
 
